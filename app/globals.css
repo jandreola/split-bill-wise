@@ -1,27 +1,53 @@
+/* app/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply bg-ios-light-gray text-ios-almost-black font-sans;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Basic iOS-like button styling - can be applied with a class or as base */
+.btn-ios {
+  @apply bg-ios-blue text-white font-semibold py-2 px-4 rounded-ios shadow-sm hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-ios-blue focus:ring-opacity-50 transition-colors;
+}
+
+.btn-ios-secondary {
+  @apply bg-ios-mid-gray text-ios-blue font-semibold py-2 px-4 rounded-ios shadow-sm hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-ios-mid-gray focus:ring-opacity-50 transition-colors;
+}
+
+.btn-ios-destructive {
+  @apply bg-ios-red text-white font-semibold py-2 px-4 rounded-ios shadow-sm hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-ios-red focus:ring-opacity-50 transition-colors;
+}
+
+/* Basic iOS-like input styling */
+.input-ios {
+  @apply w-full p-2.5 border border-ios-mid-gray rounded-ios bg-white focus:outline-none focus:ring-2 focus:ring-ios-blue focus:border-ios-blue;
+  /* Consider placeholder text color if needed: placeholder-ios-dark-gray */
+}
+
+.select-ios {
+   @apply w-full p-2.5 border border-ios-mid-gray rounded-ios bg-white appearance-none focus:outline-none focus:ring-2 focus:ring-ios-blue focus:border-ios-blue;
+   /* background-image for custom arrow might be needed for perfect iOS look */
+}
+
+/* iOS-like card/container styling */
+.card-ios {
+  @apply bg-white rounded-ios shadow-md;
+  /* In dark mode, this would be a dark gray */
+}
+
+/* iOS like list item separators (within a card) */
+.list-item-ios + .list-item-ios {
+    @apply border-t border-ios-mid-gray;
+}
+
+/* Change main page background in page.tsx instead of here for more control */
+/* For example, if using layout.tsx, that might be a better place for overall app background */
+
+/* Ensure h1, h2, etc., use appropriate font weights if SF Pro has them */
+h1, h2, h3, h4, h5, h6 {
+    /* @apply font-semibold; Can be default or adjusted */
 }
