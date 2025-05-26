@@ -1,4 +1,5 @@
-import type { Config } from 'tailwindcss'
+// tailwind.config.ts
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -8,13 +9,41 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        'ios-blue': '#007AFF', // Standard iOS blue
+        'ios-light-gray': '#F2F2F7', // Light mode background
+        'ios-mid-gray': '#E5E5EA',   // Separators, borders
+        'ios-dark-gray': '#8E8E93',  // Secondary text
+        'ios-almost-black': '#1C1C1E', // Primary text (dark mode)
+        'ios-red': '#FF3B30',
+        'ios-green': '#34C759',
+        // You can add more iOS specific colors as needed
+      },
+      fontFamily: {
+        // iOS uses San Francisco (SF Pro Text, SF Pro Display).
+        // Fallback to system UI fonts.
+        sans: [
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"SF Pro Text"',
+          '"Segoe UI"',
+          'Roboto',
+          '"Helvetica Neue"',
+          'Arial',
+          '"Noto Sans"',
+          'sans-serif',
+          '"Apple Color Emoji"',
+          '"Segoe UI Emoji"',
+          '"Segoe UI Symbol"',
+          '"Noto Color Emoji"',
+        ],
+      },
+      borderRadius: {
+        'ios': '0.5rem', // Common iOS corner radius (approx 8-10px)
       },
     },
   },
   plugins: [],
-}
-export default config
+};
+export default config;
